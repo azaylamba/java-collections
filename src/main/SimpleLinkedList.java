@@ -13,6 +13,11 @@ public class SimpleLinkedList {
         }
     }
 
+    /**
+     * Inserts a node with given key at the end of list.
+     *
+     * @param data
+     */
     public void insertNode(int data) {
         Node node = new Node(data);
         //if list is empty add to head
@@ -20,6 +25,7 @@ public class SimpleLinkedList {
             this.head = node;
         } else {
             Node last = this.head;
+            //otherwise find the last node and add there
             while(last.next != null) {
                 last = last.next;
             }
@@ -27,6 +33,10 @@ public class SimpleLinkedList {
         }
     }
 
+    /**
+     * Prints linked list elements.
+     *
+     */
     public void printList() {
         Node currNode = this.head;
         System.out.print("Simple Linked list: ");
@@ -38,9 +48,16 @@ public class SimpleLinkedList {
         System.out.println();
     }
 
+    /**
+     * Deletes node from list where node data is equals to given key.
+     *
+     * @param key
+     */
     public void deleteByKey(int key) {
+        //if list is empty
         if(this.head == null) {
             System.out.println("List is empty, could not delete");
+            return;
         }
 
         //Case 1: Key is head of list
@@ -56,13 +73,13 @@ public class SimpleLinkedList {
             prevNode = currNode;
             currNode = currNode.next;
         }
-
+        //current node would be not null in case key is found
         if(currNode != null) {
             prevNode.next = currNode.next;
             System.out.println(key + " deleted key from list");
             return;
         }
-        //Case 3: If key is not present
+        //Case 3: If key is not present, current node would be null at this point
         if(currNode == null) {
             System.out.println("Key not present in list");
         }

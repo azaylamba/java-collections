@@ -4,6 +4,9 @@ import main.SimpleLinkedList;
 
 public class SimpleLinkedListTest {
 
+    /**
+     * Test case to test the simple operations defined in {@link SimpleLinkedList}
+     */
     private static void testSimpleLinkedList() {
         SimpleLinkedList list = new SimpleLinkedList();
         list.insertNode(1);
